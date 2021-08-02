@@ -1,14 +1,20 @@
 const jsonServer = require('json-server')
 const path = require('path')
+const express = require('express')
+const isAuthorized = require('./isAuthorized');
+
+
 const server = jsonServer.create()
-const router = jsonServer.router(path.join(__dirname, 'db.json'))
-const middlewares = jsonServer.defaults()
-const isAuthorized = require('./isAuthorized')
+const pathData = path.join(__dirname, 'db.json')
+const middlewares = jsonServer.defaults({ static: './public', noCors: true})
+const router = jsonServer.router(pathData);
+
 const PORT = 3001
-server.use(middlewares)
-// server.use(isAuthorized)
-console.log(__dirname);
-server.use(router)
+server.use('/db', middlewares, router)
+server.use(express.static('./build'))
+
+
 server.listen(PORT, () => {
-  console.log(`Server is running in http://localhost:${PORT}`)
-})
+   console.log(`Server is running in http://localhost:${PORT}`)
+  console.log(`Data Base is running in http://localhost:${PORT}/db`)
+});
