@@ -1,0 +1,2 @@
+# horoscopo
+Visualización de Horóscopo
