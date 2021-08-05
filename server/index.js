@@ -10,7 +10,7 @@ const middlewares = jsonServer.defaults({ static: './public', noCors: true})
 const router = jsonServer.router(pathData);
 
 const PORT = 3001
-server.use('/db', middlewares, router)
+server.use('/db', middlewares,isAuthorized,router)
 server.use(express.static('./build'))
 
 
