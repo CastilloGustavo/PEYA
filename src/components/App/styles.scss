@@ -1,3 +1,4 @@
+
 .cnt-main-app{
   display: flex;
   justify-content:center;
@@ -6,7 +7,19 @@
   padding-left: 100px;
   padding-right: 100px;
   padding-top: 16px;
+  .title-app{
+    font-size: 40px;
+    font-weight: 800;
+    padding: 16px;
+  }
+  
+  .sub-title-app{
+    font-size: 24px;
+    font-weight: 600;
+    padding: 16px;
+  }
 }
+
 
 .cnt-header-result{
   width: 50%;

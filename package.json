@@ -20,7 +20,7 @@
   },
   "scripts": {
     "watch": "npm-watch",
-    "start-server": "node ./server/index.js",
+    "server": "node ./server/index.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -27,8 +27,8 @@ const App = (props) =>{
   }
 
   return(<div className="cnt-main-app">
-    <h1>{title_page}</h1>
-    <h3>{sub_title_page}</h3>
+    <span className="title-app">{title_page}</span>
+    <span className="sub-title-app">{sub_title_page}</span>
     <div className="cnt-header-result">
       <DisplayType></DisplayType>
       <Search></Search>
