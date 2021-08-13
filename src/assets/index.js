@@ -30,9 +30,6 @@ const mapIdKeyToImag = {
 }
 
 const WrapperImg = (props) =>{
-    console.log('Aca');
-    console.log(props);
-    console.log(props.keyImg);
     return(mapIdKeyToImag[props.keyImg] ? mapIdKeyToImag[props.keyImg]: null )
 }
 

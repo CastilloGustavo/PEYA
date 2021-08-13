@@ -11,7 +11,6 @@ import './index.scss';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      {/* <img src="./assets/zodic_background.jpeg" alt="" style="width:100%;" /> */}
       <App />
     </Provider>
   </React.StrictMode>,

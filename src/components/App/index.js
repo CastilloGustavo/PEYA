@@ -10,18 +10,19 @@ import './styles.scss';
 
 const App = (props) =>{
   // const {title_page , sub_title_page } = props;
-  const {title_page , sub_title_page, display_type, zodic_list} = useSelector(state => state);
+  const {title_page , sub_title_page, display_type, zodic_list, zodic_list_filtered} = useSelector(state => state);
   const dispatch = useDispatch();
 
   useEffect(()=>{
     getAllZodic().then(result =>{
+      console.log("pase por la api")
       dispatch(findZodicList(result))
     });
   },[dispatch])
 
   const showInfoResult = () => {
     if(display_type === 'list'){
-      return(<ResultList list={zodic_list}></ResultList>);
+      return(<ResultList list={zodic_list_filtered}></ResultList>);
     }
     return (<h1>Me muestro en grill</h1>)
   }
