@@ -1,14 +1,13 @@
 import React from 'react';
-import { selectTypeDisplay } from '../../redux/actions';
-import { useDispatch } from 'react-redux'
 
 const DisplayType = (props) =>{
-  const dispatch = useDispatch()
-  const onChangeType = (event) =>{
-    dispatch(selectTypeDisplay(event.target.value))
+  const {display , onChangeCustom} = props;
+  
+  const onChangeType = (event) => {
+    onChangeCustom(event.target.value);
   }
   return(<div>
-      <select id="type-visulizacion" onChange={onChangeType}>
+      <select id="type-visulizacion" value={display} onChange={onChangeType}>
       <option value="list">List</option>
       <option value="grid">Grilla</option>
     </select>

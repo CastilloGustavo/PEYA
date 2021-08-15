@@ -7,6 +7,7 @@ $base-color-backgroud: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
     margin: 8px;
     background: $base-color-backgroud;
+    height: auto;
     
     &-img{
         width: 80px;
@@ -22,7 +23,6 @@ $base-color-backgroud: rgba(0, 0, 0, 0.8);
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: 80px;
         margin: 10px;
         &-title{
             font-size: 24px;
@@ -33,6 +33,14 @@ $base-color-backgroud: rgba(0, 0, 0, 0.8);
             font-size: 16px;
             font-weight: 400;
             width: 100%;
+        }
+    }
+
+    &-view-grid{
+        display: flex;
+        flex-direction: column;
+        .cnt-item-body-title{
+            padding: 8px;
         }
     }
     

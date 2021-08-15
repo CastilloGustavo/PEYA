@@ -1,12 +1,9 @@
-import rfdc from 'rfdc';
 import {typeFindZodicList, typeSelectTypeDisplay, typeFilterZodicList} from '../actions';
-
-const cloneCircles = rfdc({ circles: true, proto: true })
 
 const defaultState = {
     title_page: 'Welcome a tu Horoscopo Favorito',
     sub_title_page: 'Veremos que te espera hoy',
-    display_type: 'list',
+    display_type: 'grid',
     zodic_list: [],
     zodic_list_filtered: [],
     text_search: '',
