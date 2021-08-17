@@ -1,4 +1,4 @@
-import {typeFindZodicList, typeSelectTypeDisplay, typeFilterZodicList} from '../actions';
+import {typeFindZodicList, typeSelectTypeDisplay, typeFilterZodicList, typeSetZodicMount} from '../actions';
 
 const defaultState = {
     title_page: 'Welcome a tu Horoscopo Favorito',
@@ -7,6 +7,7 @@ const defaultState = {
     zodic_list: [],
     zodic_list_filtered: [],
     text_search: '',
+    zodic_month: {}
 };
 
 const reducer = (state = defaultState, {type, payload}) =>{
@@ -27,6 +28,12 @@ const reducer = (state = defaultState, {type, payload}) =>{
             return {
                 ...state,
                 display_type: payload,
+            }
+        }
+        case typeSetZodicMount:{
+            return {
+                ...state,
+                zodic_month: payload,
             }
         }
         default: 

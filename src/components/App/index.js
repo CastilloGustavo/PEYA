@@ -1,25 +1,31 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { findZodicList, selectTypeDisplay } from '../../redux/actions';
+import { findZodicList, selectTypeDisplay, setZodicMount } from '../../redux/actions';
 
-
+import getMainZodicMonth from './utils';
 import getAllZodic from '../../services';
 import Search from '../Search';
 import DisplayType from '../DisplayType';
 import ResultList from '../ResultList';
 import './styles.scss';
 import ResultGrid from '../ResultGrid';
+import ResultItem from '../ResultItem';
 
 const App = (props) =>{
-  const {title_page , sub_title_page, display_type, zodic_list_filtered} = useSelector(state => state);
+  const {title_page , sub_title_page, display_type, zodic_list_filtered, zodic_month} = useSelector(state => state);
   const dispatch = useDispatch();
+  
 
   useEffect(()=>{
     getAllZodic().then(result =>{
-      console.log("pase por la api")
-      dispatch(findZodicList(result))
+      const keyZodicSelect = getMainZodicMonth(new Date())
+      const zodic_month = result.filter((x) => x.image === keyZodicSelect)[0]
+      dispatch(findZodicList(result));
+      dispatch(setZodicMount(zodic_month));
     });
   },[dispatch])
+
+  
 
   const onChangeDisplay = (value) =>{
     dispatch(selectTypeDisplay(value))
@@ -38,6 +44,9 @@ const App = (props) =>{
     <div className="cnt-header-result">
       <DisplayType onChangeCustom={onChangeDisplay} display={display_type}></DisplayType>
       <Search></Search>
+    </div>
+    <div className="cnt-body-result">
+      <ResultItem display="list" result={zodic_month}></ResultItem>
     </div>
     <div className="cnt-body-result">
       {showInfoResult()}

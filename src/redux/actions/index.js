@@ -1,6 +1,7 @@
 const typeFindZodicList = 'findZodicList';
 const typeSelectTypeDisplay = 'selectTypeDisplay';
 const typeFilterZodicList = 'filterZodicList';
+const typeSetZodicMount = 'setZodicMount';
 
 
 const findZodicList = (zodicList)=> {
@@ -24,7 +25,15 @@ const selectTypeDisplay = (codDisplay) =>{
     }
 }
 
+const setZodicMount = (codDisplay) =>{
+    return {
+        type: typeSetZodicMount,
+        payload: codDisplay
+    }
+}
+
 
 export {typeFindZodicList, findZodicList,
     typeSelectTypeDisplay, selectTypeDisplay,
-    typeFilterZodicList, filterZodicList }
+    typeFilterZodicList, filterZodicList,
+    typeSetZodicMount, setZodicMount }
