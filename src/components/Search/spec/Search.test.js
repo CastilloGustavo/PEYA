@@ -28,9 +28,9 @@ jest.mock("react-redux", (wrapperFn) => ({
         }
       }
     },
-    useDispatch: (otrafuncion) =>{
+    useDispatch: (wrapperFn) =>{
        return (otrafuncion) =>{
-            return wrapperFn;
+            return otrafuncion;
         }
     }
   }));

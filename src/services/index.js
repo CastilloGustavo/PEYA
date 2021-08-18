@@ -7,7 +7,6 @@ const errorLog = (error) =>{
     console.log(error);
 }
 
-
 const getAllZodic =()=>{
     return axionWrapper.get(`${baseURl}db/zodiac_signs`).then((response) =>{
     return response.data;       
