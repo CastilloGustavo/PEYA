@@ -17,3 +17,11 @@ Esto nos levantara la aplicacion en un server con los archivos estaticos en http
 Se genero un server interno en la aplicacion para facilitar en trabajo con las llamadas REST ya que en el browser al relizar llamadas rest a un dominio distinto genera problemas de  Access-Control-Allow-Origin 
 
 
+# Diseño
+Se utilizo una arquitectura basica de proyecto usando Redux para la gestion de estado facilitando la centralizacion del estado de toda la aplicacion de un unico lugar. Siempre se pense en componentes independientes con bajo acoplamiento, para que estos puedan ser reutilizados desde cualquier otra parte de la aplicacion.
+Se genero un modulo de servicios donde se centralizaran todas la llamas AJAX actualmente o en un futuro un Graphql. Para las llamadas ajax se utlizon la libreri Axios. Para resolver el tema de la autorizacion se extendio axios y se paso el valor por defecto, esto a fines de prueba porque lo que deberia ser en un futuro es tener ese codigo en un cookie que expire o trabajar con JWT para las autorizacion de Resquest.
+
+# Test
+Se relizaron test unitarios con la herramienta ya provista en la nueva version de react. (https://testing-library.com/) en el fondo es un wrapper de jest con mejoras de utilidad para test en react.
+Se podrian agregar test de integracion con selenium pero al ser un proyecto tan pequeño no me parecio necesario.
+
