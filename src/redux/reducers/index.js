@@ -1,39 +1,15 @@
-import {typeFindZodicList, typeSelectTypeDisplay, typeFilterZodicList, typeSetZodicMount} from '../actions';
+import {typeFindPlanetsList} from '../actions';
 
 const defaultState = {
-    title_page: 'Welcome a tu Horoscopo Favorito',
-    sub_title_page: 'Veremos que te espera hoy',
-    display_type: 'grid',
-    zodic_list: [],
-    zodic_list_filtered: [],
-    text_search: '',
-    zodic_month: {}
+    title_page: 'Welcome a mi Primera KATA',
+    sub_title_page: 'Daremos lo Mejor y Nos divertiremos',
 };
 
 const reducer = (state = defaultState, {type, payload}) =>{
     switch(type){
-        case typeFindZodicList:{
+        case typeFindPlanetsList:{
         return {...state,
-            zodic_list: Object.assign([],payload),
-            zodic_list_filtered: Object.assign([],payload),
-            }
-        }
-        case typeFilterZodicList:{
-            return {
-            ...state,
-            zodic_list_filtered: payload,
-            }
-        }
-        case typeSelectTypeDisplay:{
-            return {
-                ...state,
-                display_type: payload,
-            }
-        }
-        case typeSetZodicMount:{
-            return {
-                ...state,
-                zodic_month: payload,
+            
             }
         }
         default: 

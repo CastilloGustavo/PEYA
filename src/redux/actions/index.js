@@ -1,39 +1,13 @@
-const typeFindZodicList = 'findZodicList';
-const typeSelectTypeDisplay = 'selectTypeDisplay';
-const typeFilterZodicList = 'filterZodicList';
-const typeSetZodicMount = 'setZodicMount';
+const typeFindPlanetsList = 'findPlanetList';
 
-
-const findZodicList = (zodicList)=> {
+const findPlanetList = (planetList)=> {
     return{
-        type: typeFindZodicList,
-        payload: zodicList,
+        type: typeFindPlanetsList,
+        payload: planetList,
     };
 };
 
-const filterZodicList = (zodicListFiltered)=> {
-    return{
-        type: typeFilterZodicList,
-        payload: zodicListFiltered,
-    };
-};
-
-const selectTypeDisplay = (codDisplay) =>{
-    return {
-        type: typeSelectTypeDisplay,
-        payload: codDisplay
-    }
-}
-
-const setZodicMount = (codDisplay) =>{
-    return {
-        type: typeSetZodicMount,
-        payload: codDisplay
-    }
-}
 
 
-export {typeFindZodicList, findZodicList,
-    typeSelectTypeDisplay, selectTypeDisplay,
-    typeFilterZodicList, filterZodicList,
-    typeSetZodicMount, setZodicMount }
+
+export {typeFindPlanetsList, findPlanetList }

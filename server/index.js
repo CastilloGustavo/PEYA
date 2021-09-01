@@ -1,20 +1,25 @@
-const jsonServer = require('json-server')
-const path = require('path')
-const express = require('express')
-const isAuthorized = require('./isAuthorized');
+import express from 'express';
+// Controllers
+import {getPlanetsList} from './controller/index.js';
 
+const app = express()
+const port = 3000
 
-const server = jsonServer.create()
-const pathData = path.join(__dirname, 'db.json')
-const middlewares = jsonServer.defaults({ static: './public', noCors: true})
-const router = jsonServer.router(pathData);
+const messageError = 'api no disponible';
 
-const PORT = 3001
-server.use('/db', middlewares,isAuthorized,router)
-server.use(express.static('./build'))
+app.use('/', express.static('./build'));
 
-
-server.listen(PORT, () => {
-   console.log(`Server is running in http://localhost:${PORT}`)
-  console.log(`Data Base is running in http://localhost:${PORT}/db`)
-});
+app.get('/api/planets', (req, res) => {
+    return getPlanetsList({}).then(response =>{
+        // console.log('server result')
+        // console.log(response)
+        return response.hasErrors ?  res.status(500).json({error: messageError}) : res.status(200).json(response);
+    }).catch(() =>{
+        return res.status(500).json({error: messageError});
+    });
+    
+})
+  
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+})
